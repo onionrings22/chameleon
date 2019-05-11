@@ -25,6 +25,7 @@ public class GameService {
     public void makeReady() {
         Game game = gameRepository.findById(ID);
         game.setStart(true);
+        game.setDone(false);
         gameRepository.save(game);
     }
 
@@ -46,6 +47,23 @@ public class GameService {
         game.setStart(false);
         game.setReveal(false);
         game.setVotingDone(false);
+        game.setDone(true);
         gameRepository.save(game);
+    }
+
+    @Transactional
+    public void setReveal() {
+        Game game =  gameRepository.findById(ID);
+        game.setReveal(true);
+    }
+
+    public boolean getReveal() {
+        Game game =  gameRepository.findById(ID);
+        return game.isReveal();
+    }
+
+    public boolean getDone() {
+        Game game =  gameRepository.findById(ID);
+        return game.isDone();
     }
 }

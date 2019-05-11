@@ -1,6 +1,6 @@
 const init = function() {
-    getOnlineUsers();
     checkReady();
+    getOnlineUsers();
     checkForAdmin();
 };
 
@@ -25,12 +25,9 @@ const checkReady = function() {
         url: "/ready/get"
     }).then(function(ready){
         if (ready) {
-            let btn = document.getElementById("begin-btn");
-            btn.style.display = "block";
+            window.location.href = "/items"
         }
     })
-
-
 };
 
 const checkForAdmin = function() {
@@ -42,5 +39,14 @@ const checkForAdmin = function() {
             let btn = document.getElementById("start-btn");
             btn.style.display = "block";
         }
+    })
+};
+
+const readyUp = function() {
+    $.ajax({
+        type: "GET",
+        url: "/admin/ready"
+    }).then(function(){
+        window.location.href = "/items"
     })
 };

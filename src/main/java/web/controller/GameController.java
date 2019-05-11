@@ -33,6 +33,12 @@ public class GameController {
         return gameService.getVotingDone();
     }
 
+    @GetMapping("/done/get")
+    @ResponseBody
+    public boolean getDone() {
+        return gameService.getDone();
+    }
+
     @GetMapping("/items")
     public String itemsPage() {
         if (gameService.getReady()) {
@@ -51,30 +57,55 @@ public class GameController {
         }
     }
 
-    @RequestMapping("/admin/ready")
+    @GetMapping("/reveal")
+    public String revealPage() {
+        if (gameService.getReveal()) {
+            return "views/reveal.html";
+        } else {
+            return "redirect:/votes";
+        }
+    }
+
+    @GetMapping("/admin/ready")
+    @ResponseBody
     public String setReady() {
         userService.setChameleon();
         categoryService.randomCategoryItem();
         gameService.makeReady();
-        return "views/items.html";
+        return "done";
     }
 
-    @RequestMapping("/admin/endVoting")
+    @GetMapping("/admin/endVoting")
+    @ResponseBody
     public String endVoting() {
         gameService.endVoting();
-        return "views/votes.html";
+        return "done";
     }
 
-    @RequestMapping("/admin/resetGame")
+    @GetMapping("/admin/reveal")
     @ResponseBody
-    public void resetGame() {
+    public String setReveal() {
+        gameService.setReveal();
+        return "done";
+    }
+
+    @GetMapping("reveal/get")
+    @ResponseBody
+    public boolean getReveal() {
+        return gameService.getReveal();
+    }
+
+    @GetMapping("/admin/resetGame")
+    @ResponseBody
+    public String resetGame() {
         gameService.resetGame();
         userService.resetChameleon();
         userService.resetVotes();
         categoryService.resetCategory();
+        return "done";
     }
 
-    @RequestMapping("/admin/offline")
+    @GetMapping("/admin/offline")
     @ResponseBody
     public void setAllOffline() {
         userService.setAllOffline();

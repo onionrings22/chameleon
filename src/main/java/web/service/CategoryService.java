@@ -57,8 +57,9 @@ public class CategoryService {
         Category prev = categoryRepository.findByLastTrue();
         if(prev != null) {
             prev.setLast(false);
+            categoryRepository.save(prev);
         }
-        categoryRepository.save(prev);
+
         cur.setLast(true);
         cur.setActive(false);
         categoryRepository.save(cur);

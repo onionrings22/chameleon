@@ -22,6 +22,9 @@ public class Game {
 
     @Column
     private boolean reveal;
+
+    @Column
+    private boolean done;
 }
 
 

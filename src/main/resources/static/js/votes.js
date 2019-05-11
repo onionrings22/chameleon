@@ -1,5 +1,7 @@
 const init = function() {
+    checkReveal();
     getVotes();
+    getUser();
 };
 
 const getVotes = function() {
@@ -28,5 +30,38 @@ const getVotes = function() {
             tr.appendChild(td);
             table.appendChild(tr);
         })
+    })
+};
+
+const getUser = function() {
+    $.ajax({
+        type: "GET",
+        url: "/username/get"
+    }).then(function(user) {
+        username = user;
+        if (user == "russ") {
+            let btn = document.getElementById("allow-reveal-btn");
+            btn.style.display = "block";
+        }
+    })
+};
+
+const checkReveal = function() {
+    $.ajax({
+        type: "GET",
+        url: "/reveal/get"
+    }).then(function(reveal) {
+        if (reveal) {
+            window.location.href = "/reveal";
+        }
+    })
+};
+
+const setReveal = function() {
+    $.ajax({
+        type: "GET",
+        url: "/admin/reveal"
+    }).then(function(user) {
+        window.location.href = "/reveal";
     })
 };

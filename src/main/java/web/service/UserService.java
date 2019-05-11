@@ -33,8 +33,10 @@ public class UserService {
     @Transactional
     public void resetChameleon() {
         User cham = userRepository.findByChameleonTrue();
-        cham.setChameleon(false);
-        userRepository.save(cham);
+        if(cham != null) {
+            cham.setChameleon(false);
+            userRepository.save(cham);
+        }
     }
 
     //sets one user as the chameleon and returns that user

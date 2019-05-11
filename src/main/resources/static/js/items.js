@@ -3,12 +3,12 @@ let username;
 let isChameleon = false;
 
 const init = function() {
+    checkVotingDone();
     getCategory();
     getUser();
     getVotingOptions();
     getChameleon();
     makeTable();
-    checkVotingDone();
 };
 
 const getCategory = function() {
@@ -58,6 +58,9 @@ const getChameleon = function() {
     }).then(function(chameleon) {
         if (chameleon == username) {
             isChameleon = true;
+            let header = document.getElementById("chameleon");
+            header.innerText = "You are the chameleon!";
+            header.style.display = "block";
         }
     })
 };
@@ -104,8 +107,16 @@ const checkVotingDone = function() {
         url: "/votingDone/get"
     }).then(function(votingDone) {
         if (votingDone) {
-            let btn = document.getElementById("results-btn");
-            btn.style.display = "block";
+            window.location.href = "/votes"
         }
+    })
+};
+
+const endVoting = function() {
+    $.ajax({
+        type: "GET",
+        url: "/admin/endVoting"
+    }).then(function() {
+        window.location.href = "/votes"
     })
 };
