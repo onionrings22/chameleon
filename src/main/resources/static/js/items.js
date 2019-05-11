@@ -55,7 +55,7 @@ const getChameleon = function() {
         }
     }).finally(function() {
         makeTable();
-    )
+    })
 };
 
 const makeTable = function() {
