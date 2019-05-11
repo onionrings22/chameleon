@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chameleon</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <h1>Online Users:</h1>
+            <div class="col-6 col-lg-8 text-left">
+                <ul id="online-list"></ul>
+            </div>
+            <div id="begin-btn" class="col-12 col-lg-8 display-none">
+                <a href="/items" class="btn btn-lg btn-outline-dark">Begin</a>
+            </div>
+            <div id="start-btn" class="col-12 col-lg-8 display-none">
+                <a href="/admin/ready" class="btn btn-lg btn-outline-dark">Start</a>
+            </div>
+            <div class="col-12 col-lg-8">
+                <a href="/" class="btn btn-lg btn-outline-dark">Refresh</a>
+            </div>
+            <div class="col-12 col-lg-8">
+                <a href="/user/offline" class="btn btn-lg btn-outline-dark">Log out</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

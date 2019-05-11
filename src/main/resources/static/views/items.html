@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chameleon</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/items.js"></script>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <h1 id="category"></h1>
+            <div class="col-12 col-lg-8">
+                <table id="items" class="table table-bordered"></table>
+            </div>
+            <div id="refresh-btn" class="col-12 col-lg-8">
+                <a href="/items" class="btn btn-lg btn-outline-dark">Refresh</a>
+            </div>
+            <div id="vote-btn" class="col-12 col-lg-8">
+                <select id="select-vote"></select>
+                <button onclick="vote()" class="btn btn-lg btn-outline-dark">Vote</button>
+            </div>
+            <div id="results-btn" class="col-12 col-lg-8 display-none">
+                <a href="/votes" class="btn btn-lg btn-outline-dark">Results</a>
+            </div>
+            <div id="close-vote-btn" class="col-12 col-lg-8 display-none">
+                <a href="/admin/endVoting" class="btn btn-lg btn-outline-dark">End Voting</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

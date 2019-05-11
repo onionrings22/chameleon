@@ -1,0 +1,24 @@
+.display-none {
+    display: none;
+}
+
+body div {
+    font-size: medium;
+}
+
+table {
+    font-size: small;
+}
+
+a.btn {
+    margin: 15px;
+}
+
+.row {
+    margin: 10px;
+}
+
+.chosen {
+    color: darkgreen;
+    background-color: lightgray;
+}
