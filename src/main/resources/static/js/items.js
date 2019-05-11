@@ -53,9 +53,8 @@ const getChameleon = function() {
             header.innerText = "You are the chameleon!";
             header.style.display = "block";
         }
-    }).finally(function() {
         makeTable();
-    })
+    })  
 };
 
 const makeTable = function() {
