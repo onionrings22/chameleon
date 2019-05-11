@@ -1,9 +1,3 @@
-const init = function() {
-    checkReveal();
-    getVotes();
-    getUser();
-};
-
 const getVotes = function() {
     $.ajax({
         type: "GET",
@@ -53,6 +47,9 @@ const checkReveal = function() {
     }).then(function(reveal) {
         if (reveal) {
             window.location.href = "/reveal";
+        } else {
+            getVotes();
+            getUser();
         }
     })
 };

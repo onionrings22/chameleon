@@ -1,12 +1,5 @@
 let username;
 
-const init = function() {
-    checkDone();
-    getUser();
-    getChameleon();
-    makeTable();
-};
-
 const getUser = function() {
     $.ajax({
         type: "GET",
@@ -63,6 +56,10 @@ const checkDone = function() {
     }).then(function(done) {
         if (done) {
             window.location.href = "/";
+        } else {
+            getUser();
+            getChameleon();
+            makeTable();
         }
     })
 };

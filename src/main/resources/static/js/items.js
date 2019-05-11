@@ -2,15 +2,6 @@ let itemNum;
 let username;
 let isChameleon = false;
 
-const init = function() {
-    checkVotingDone();
-    getCategory();
-    getUser();
-    getVotingOptions();
-    getChameleon();
-    makeTable();
-};
-
 const getCategory = function() {
     $.ajax({
         type: "GET",
@@ -108,6 +99,12 @@ const checkVotingDone = function() {
     }).then(function(votingDone) {
         if (votingDone) {
             window.location.href = "/votes"
+        } else {
+            getCategory();
+            getUser();
+            getVotingOptions();
+            getChameleon();
+            makeTable();
         }
     })
 };

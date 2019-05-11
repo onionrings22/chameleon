@@ -1,9 +1,3 @@
-const init = function() {
-    checkReady();
-    getOnlineUsers();
-    checkForAdmin();
-};
-
 const getOnlineUsers = function() {
     $.ajax({
         type: "GET",
@@ -26,6 +20,9 @@ const checkReady = function() {
     }).then(function(ready){
         if (ready) {
             window.location.href = "/items"
+        } else {
+            getOnlineUsers();
+            checkForAdmin();
         }
     })
 };
